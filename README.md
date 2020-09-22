@@ -68,7 +68,6 @@ salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.fa -i SalmonIndex --type q
 mkdir miRNAIndex
 mkdir rRNAIndex
 bowtie2-build ../Sequence/mm10.rRNA.fa ./rRNAIndex/rRNAIndex
-bowtie2-build ../Sequence/mm10.miRNA.fa ./miRNAIndex/miRNAIndex
 ```
 
 4, Add executable permissions
@@ -77,7 +76,6 @@ bowtie2-build ../Sequence/mm10.miRNA.fa ./miRNAIndex/miRNAIndex
 chmod +x PipeRiboseq.sh
 chmod +x ./bin/FastqAdapterTimmer
 chmod +x ./bin/bedGraphToBigWig
-chmod +x ./bin/bigWigToBedGraph
 ```
 
 ## Pipeline components
