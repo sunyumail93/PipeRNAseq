@@ -1,5 +1,5 @@
 # PipeRNAseq
-A pipeline for RNAseq data analysis
+A comprehensive pipeline for RNAseq data analysis
 
 ## Software prerequisites
 This pipeline is designed to run on Linux servers, and requires the following softwares:
@@ -23,7 +23,7 @@ To save time, you can directly use STAR and featureCounts program in the ./bin f
 
 ## Pipeline setup
 
-Here is an example of mm10 genome setup. If you have set up PipeRiboseq.sh pipeline, then some folders don't need to set up again.
+Here is an example of mm10 genome setup. If you have installed PipeRiboseq.sh pipeline before, then some folders don't need to set up again.
 
 1, Download scripts from github to Linux server:
 
@@ -138,7 +138,6 @@ PipeRNAseq.sh -l Data.R1.fastq.gz -r Data.R2.fastq.gz -g mm10
 ```
 
 More parameters used, run Cufflinks, not run fastqc, run unique mapping featureCouts (to pair with Riboseq data), generate bigWig tracks:
-
 ```
 PipeRNAseq.sh -l Data.R1.fastq.gz -r Data.R2.fastq.gz -g -cufflinksrun -noqc -p 4 -bigWig -pairrpf
 ```
