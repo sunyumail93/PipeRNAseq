@@ -65,7 +65,6 @@ STAR --runMode genomeGenerate --genomeDir STARIndex --genomeFastaFiles ../Sequen
 salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.fa -i SalmonIndex --type quasi -k 31
 
 #miRNA and rRNA bowtie2 index:
-mkdir miRNAIndex
 mkdir rRNAIndex
 bowtie2-build ../Sequence/mm10.rRNA.fa ./rRNAIndex/rRNAIndex
 ```
