@@ -9,7 +9,7 @@ STAR
 bedtools
 samtools
 salmon
-FeatureCount (from Subread)
+featureCount (from Subread)
 fastqc (optional)
 cufflinks (optional)
 ```
