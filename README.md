@@ -17,6 +17,8 @@ Besides the pipeline script PipeRNAseq.sh, dependencies are in ./bin folder
 
 One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig. Other scripts were generated from this project.
 
+Some codes may not work on Mac OS, and bedGraphToBigWig for Mac can be downloaded here: http://hgdownload.soe.ucsc.edu/admin/exe/macOSX.x86_64
+
 To save time, you can directly use STAR and featureCounts program in the ./bin folder (just add it to $PATH), without installing them again.
 
 ## Pipeline setup
