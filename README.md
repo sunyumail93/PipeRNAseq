@@ -174,4 +174,3 @@ SRR10446759.fastq.mm10.quant.sf
 SRR10446759.fastq.mm10.sorted.minus.bedGraph.bw
 SRR10446759.fastq.mm10.sorted.minus.bedGraph.bw
 ```
-
