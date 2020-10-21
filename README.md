@@ -145,7 +145,7 @@ PipeRNAseq.sh -l Data.R1.fastq.gz -r Data.R2.fastq.gz -g -cufflinksrun -noqc -p 
 ## Run a real data to test the pipeline
 
 1, Download data
-
+ 
 Use a public dataset: [GEO SRA: SRR10446759](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4160756)
 
 `fastq-dump` is part of [NCBI SRA Toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software):
