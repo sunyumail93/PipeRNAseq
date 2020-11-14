@@ -144,32 +144,123 @@ PipeRNAseq.sh -l Data.R1.fastq.gz -r Data.R2.fastq.gz -g -cufflinksrun -noqc -p 
 
 ## Run a real data to test the pipeline
 
-1, Download data
+### 1, Download data
  
 Use a public dataset: [GEO SRA: SRR10446759](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4160756)
 
 `fastq-dump` is part of [NCBI SRA Toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software):
 
 ```
-fastq-dump --split-3 SRR10446759
-gzip SRR10446759.fastq
+#For single-end data
+fastq-dump --split-3 SRR10446770
+gzip SRR10446770.fastq
+
+#For paired-end data
+fastq-dump --split-3 SRR12990746
+SRR12990746_1.fastq SRR12990746.R1.fastq
+SRR12990746_2.fastq SRR12990746.R2.fastq
 ```
 
-2, Run PipeRNAseq.sh pipeline:
+### 2, Run PipeRNAseq.sh pipeline:
 
 ```
-PipeRNAseq.sh -i SRR10446759.fastq.gz -g mm10
+PipeRNAseq.sh -i SRR10446770.fastq.gz -g mm10 -p 8
+PipeRNAseq.sh -l Data.R1.fastq.gz -r Data.R2.fastq.gz -p 8
 ```
 
-## Outputs
+### 3, Loop through multiple dataset
 
-1, Gene expression
+If you have multiple RNAseq data to process, put each data into a separate folder, then submit them using a loop.
+
+```
+#Data hierarchy
+RNAseq/
+    ├── Data1.R1.fastq.gz
+    ├── Data1.R2.fastq.gz
+    ├── Data2.R1.fastq.gz
+    └── Data2.R2.fastq.gz
+for i in `for name in *R?.fastq.gz*;do echo ${name%.R*};done|uniq`;do echo $i;mkdir $i;done
+for name in *RNAseq;do echo $name;mv $name.R?.fastq.gz $name/;done
+
+#After running the above two commands:
+RNAseq/
+    ├── Data1
+        ├── Data1.R1.fastq.gz
+        └── Data1.R2.fastq.gz
+    └── Data2
+        ├── Data1.R1.fastq.gz
+        └── Data1.R2.fastq.gz
+        
+#Finally submit pipeline:
+#If you are running this on cluster, better to create a sbatch script using this loop, then submit them to run parallelly.
+for name in *Data;do echo $name;cd $name;PipeRNAseq.sh -l $name.R1.fastq.gz -r $name.R2.fastq.gz -g mm10 -p 8 -bigWig;cd ../;done
+
+#After the data finishes, you will get a list of outputs:
+RNAseq/
+    ├── Data1/
+        ├── fastqc/
+            ├── Data1.fastqc.log
+            ├── Data1.R1_fastqc.html
+            ├── Data1.R1_fastqc.zip
+            ├── Data1.R2_fastqc.html
+            └── Data1.R2_fastqc.zip
+        ├── feature_counts/
+            ├── Data1.mm10.featureCounts.FullTable.txt
+            ├── Data1.mm10.featureCounts.FullTable.txt.summary
+            ├── Data1.mm10.featureCounts.gene.txt
+            ├── Data1.mm10.featureCounts.log
+            ├── Data1.mm10.featureCounts.unique.All.CDS.gene.txt
+            ├── Data1.mm10.featureCounts.unique.FullTable.txt
+            ├── Data1.mm10.featureCounts.unique.FullTable.txt.summary
+            ├── Data1.mm10.featureCounts.unique.gene.txt
+            ├── Data1.mm10.featureCounts.unique.lncRNA.gene.txt
+            ├── Data1.mm10.featureCounts.unique.log
+            ├── Data1.featureCounts.unique.mRNA.CDS.FullTable.txt
+            ├── Data1.featureCounts.unique.mRNA.CDS.FullTable.txt.summary
+            ├── Data1.featureCounts.unique.mRNA.CDS.gene.txt
+            └── Data1.featureCounts.unique.mRNA.CDS.log
+        ├── genome_mapping/
+            ├── Data1.mm10.Log.final.out
+            ├── Data1.mm10.Log.out
+            ├── Data1.mm10.Log.progress.out
+            ├── Data1.mm10.SJ.out.tab
+            ├── Data1.mm10.sorted.bam
+            ├── Data1.mm10.sorted.bam.bai
+            ├── Data1.mm10.sorted.unique.bam
+            ├── Data1.mm10.sorted.unique.bam.bai
+            ├── Data1.rRNA.log
+            └── Data1.STAR.log
+        ├── Data1.R1.fastq.gz
+        ├── Data1.R2.fastq.gz
+        ├── Data1.summary
+        ├── salmon_results/
+            ├── Data1.mm10.quant.sf
+            ├── Data1.mm10.salmon.log
+            └── Data1.salmon/
+        ├── salmonWithTE_results
+            ├── Data1.mm10.salmonWithTE.log
+            ├── Data1.mm10.WithTE.quant.sf
+            └── Data1.salmonWithTE/
+        └── tracks
+            ├── mm10.sorted.minus.bedGraph.bw
+            └── mm10.sorted.plus.bedGraph.bw
+    └── Data2/
+        ...
+
+#You can also run MultiQC under RNAseq directory to summarize all results:
+#See more details: https://multiqc.info/
+
+```
+
+## Important results
+
+1, Gene and transcript quantification results
 ```
 SRR10446759.fastq.mm10.featureCounts.gene.txt
 SRR10446759.fastq.mm10.quant.sf
 ```
 
-2, Tracks
+2, bigWig Tracks
 ```
 SRR10446759.fastq.mm10.sorted.minus.bedGraph.bw
 SRR10446759.fastq.mm10.sorted.minus.bedGraph.bw
