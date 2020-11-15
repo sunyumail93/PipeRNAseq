@@ -184,7 +184,7 @@ fi
 if [ $genome == "unassigned" ];then
   echo "     >>> [Error]: Please assign genome file!"
 else
-  if [ $genome == "mm10" -o $genome == "hg38" -o $genome == "rn6" -o $genome == "GRCm38" -o $genome == "sacCer3" -o $genome == "susScr11" ];  then
+  if [ -d $HomeDir/$genome ];  then
     echo "     >>> This genome is supported."
     genomestats=1
   else
