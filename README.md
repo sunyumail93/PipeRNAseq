@@ -2,7 +2,9 @@
 A comprehensive pipeline for RNAseq data analysis
 
 ## Software prerequisites
-This pipeline is designed to run on Linux servers, and requires the following softwares:
+This pipeline is designed to run on Linux servers (but can also be used on Mac OS), and requires the following softwares:
+
+They need to be installed and added to $PATH before using the pipeline.
 ```
 bowtie2
 STAR
@@ -17,7 +19,10 @@ Besides the pipeline script PipeRNAseq.sh, dependencies are in ./bin folder
 
 One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig.
 
-Some codes may not work on Mac OS, and bedGraphToBigWig for Mac can be downloaded here: http://hgdownload.soe.ucsc.edu/admin/exe/macOSX.x86_64
+Some codes may not work on Mac OS, and bedGraphToBigWig for Mac version can be downloaded here: http://hgdownload.soe.ucsc.edu/admin/exe/macOSX.x86_64, and need to be saved in ./bin folder
+
+Also, for Mac OS, set the pipeline home directory at PipeRNAseq.sh line 59 manually, and comment out line 57:
+`HomeDir="/Users/yusun/Downloads/PipelineHomeDir"`
 
 To save time, you can directly use STAR and featureCounts program in the ./bin folder (just add it to $PATH), without installing them again.
 
