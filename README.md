@@ -15,7 +15,7 @@ cufflinks (optional)
 ```
 Besides the pipeline script PipeRNAseq.sh, dependencies are in ./bin folder
 
-One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig. Other scripts were generated from this project.
+One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig.
 
 Some codes may not work on Mac OS, and bedGraphToBigWig for Mac can be downloaded here: http://hgdownload.soe.ucsc.edu/admin/exe/macOSX.x86_64
 
@@ -195,7 +195,7 @@ RNAseq/
 #If you are running this on cluster, better to create a sbatch script using this loop, then submit them to run parallelly.
 for name in *Data;do echo $name;cd $name;PipeRNAseq.sh -l $name.R1.fastq.gz -r $name.R2.fastq.gz -g mm10 -p 8 -bigWig;cd ../;done
 
-#After the data finishes, you will get a list of outputs:
+#After the pipeline finishes, you will get a list of outputs:
 RNAseq/
     ├── Data1/
         ├── fastqc/
@@ -247,8 +247,9 @@ RNAseq/
     └── Data2/
         ...
 
-#You can also run MultiQC under RNAseq directory to summarize all results:
+#You can also run MultiQC under RNAseq directory (outside all data folders) to summarize the results:
 #See more details: https://multiqc.info/
+multiqc .
 
 ```
 
@@ -256,7 +257,8 @@ RNAseq/
 
 1, Gene and transcript quantification results
 ```
-SRR10446759.fastq.mm10.featureCounts.gene.txt
+SRR10446759.fastq.mm10.featureCounts.gene.txt                            #All genes
+Data1.mm10.featureCounts.unique.All.CDS.gene.txt                         #All genes, mRNA CDS region counts (full length for lncRNA)
 SRR10446759.fastq.mm10.quant.sf
 ```
 
@@ -265,4 +267,3 @@ SRR10446759.fastq.mm10.quant.sf
 SRR10446759.fastq.mm10.sorted.minus.bedGraph.bw
 SRR10446759.fastq.mm10.sorted.minus.bedGraph.bw
 ```
-
