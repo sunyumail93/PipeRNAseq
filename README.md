@@ -30,6 +30,12 @@ To save time, you can directly use STAR and featureCounts program in the ./bin f
 
 Here is an example of mm10 genome setup. If you have installed PipeRiboseq.sh pipeline before, then some folders don't need to set up again.
 
+0, Files
+
+For mm10 and susScr11, some annotation files have been prepared in the repository. 
+
+For other species, follow the pipeline component of mm10 to generate dependent files.
+
 1, Download scripts from github to Linux server:
 
 ```
