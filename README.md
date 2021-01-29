@@ -24,8 +24,6 @@ Some codes may not work on Mac OS, and bedGraphToBigWig for Mac version can be d
 Also, for Mac OS, set the pipeline home directory at PipeRNAseq.sh line 59 manually, and comment out line 57:
 `HomeDir="/Users/yusun/Downloads/PipelineHomeDir"`
 
-To save time, you can directly use STAR and featureCounts program in the ./bin folder (just add it to $PATH), without installing them again.
-
 ## Pipeline setup
 
 Here is an example of mm10 genome setup. If you have installed PipeRiboseq.sh pipeline before, then some folders don't need to set up again.
