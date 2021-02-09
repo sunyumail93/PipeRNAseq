@@ -30,7 +30,7 @@ Here is an example of mm10 genome setup. If you have installed PipeRiboseq.sh pi
 
 0, Files
 
-For mm10, hg38 and susScr11, some annotation files have been prepared in the repository. 
+For mm10, hg38, rn6 and susScr11, some annotation files have been prepared in the repository. 
 
 For other species, follow the pipeline component of mm10 to generate dependent files.
 
