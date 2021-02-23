@@ -90,7 +90,7 @@ chmod +x ./bin/bedGraphToBigWig
 ## Pipeline components
 ```
 PipelineHomeDir/
-    ├── PipeRiboseq.sh
+    ├── PipeRNAseq.sh
     ├── bin/
     └── mm10/
       └── Annotation/
