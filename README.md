@@ -84,7 +84,6 @@ bowtie2-build ../Sequence/mm10.rRNA.fa ./rRNAIndex/rRNAIndex
 
 ```
 chmod +x PipeRiboseq.sh
-chmod +x ./bin/FastqAdapterTimmer
 chmod +x ./bin/bedGraphToBigWig
 ```
 
