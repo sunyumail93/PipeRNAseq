@@ -2,7 +2,7 @@
 A comprehensive pipeline for RNAseq data analysis
 
 ## Software prerequisites
-This pipeline is designed to run on Linux servers (but can also be used on Mac OS), and requires the following softwares:
+This pipeline is designed to run on Linux servers (but can also be used on Mac OS), and requires the following software:
 
 They need to be installed and added to $PATH before using the pipeline.
 ```
@@ -83,7 +83,7 @@ bowtie2-build ../Sequence/mm10.rRNA.fa ./rRNAIndex/rRNAIndex
 4, Add executable permissions
 
 ```
-chmod +x PipeRiboseq.sh
+chmod +x PipeRNAseq.sh
 chmod +x ./bin/bedGraphToBigWig
 ```
 
