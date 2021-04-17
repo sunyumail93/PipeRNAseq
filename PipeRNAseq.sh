@@ -725,7 +725,7 @@ rm -rf ${DatabamPre}.plus.filtered.bedGraph ${DatabamPre}.minus.filtered.bedGrap
 rm -rf ${DatabamPre}.bed12.rev ${DatabamPre}.bed12
 fi
 
-mv ${DatabamPre}.*.bedGraph.bw $TracksDir
+mv ${DatabamPre}*bedGraph.bw $TracksDir
 
 fi
 
