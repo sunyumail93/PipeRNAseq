@@ -4,7 +4,7 @@ A comprehensive pipeline for RNAseq data analysis
 ## Software prerequisites
 This pipeline is designed to run on Linux servers (but can also be used on Mac OS), and requires the following software:
 
-They need to be installed and added to $PATH before using the pipeline.
+They need to be installed and added to the $PATH before using the pipeline.
 ```
 bowtie2
 STAR
@@ -21,12 +21,12 @@ One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGrap
 
 Some codes may not work on Mac OS, and bedGraphToBigWig for Mac version can be downloaded here: http://hgdownload.soe.ucsc.edu/admin/exe/macOSX.x86_64, and need to be saved in ./bin folder
 
-Also, for Mac OS, set the pipeline home directory at PipeRNAseq.sh line 59 manually, and comment out line 57:
+Also, for Mac OS, set the pipeline home directory at PipeRNAseq.sh line 59 manually (and comment out line 57):
 `HomeDir="/Users/yusun/Downloads/PipelineHomeDir"`
 
 ## Pipeline setup
 
-Here is an example of mm10 genome setup. If you have installed PipeRiboseq.sh pipeline before, then some folders don't need to set up again.
+Here is an example of mm10 genome setup. If you have installed PipeRiboseq.sh pipeline before, then some folders are compatible don't need to be set up again.
 
 0, Files
 
