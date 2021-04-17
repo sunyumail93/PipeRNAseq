@@ -696,26 +696,32 @@ DatabamPre=$GenomeMappingDir/${OutputSuffix}.${genome}.sorted
 
 if [ $mode == "single" ];then
 echo "   Generating track files for single end data"
-bedtools genomecov -bga -split -strand + -ibam ${Databam} -scale $ScalingPlus -g $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt > ${DatabamPre}.plus.bedGraph
-bedtools genomecov -bga -split -strand - -ibam ${Databam} -scale $ScalingMinus -g $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt > ${DatabamPre}.minus.bedGraph
+bedtools genomecov -bga -split -strand + -ibam ${Databam} -scale $ScalingPlus > ${DatabamPre}.plus.bedGraph
+bedtools genomecov -bga -split -strand - -ibam ${Databam} -scale $ScalingMinus > ${DatabamPre}.minus.bedGraph
+bedtools genomecov -bga -split -ibam ${Databam} -scale $ScalingPlus > ${DatabamPre}.bedGraph
 awk '$4!=0' ${DatabamPre}.plus.bedGraph > ${DatabamPre}.plus.filtered.bedGraph
 awk '$4!=0' ${DatabamPre}.minus.bedGraph > ${DatabamPre}.minus.filtered.bedGraph
+awk '$4!=0' ${DatabamPre}.bedGraph > ${DatabamPre}.filtered.bedGraph
 $HomeDir/bin/bedGraphToBigWig ${DatabamPre}.plus.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.plus.bedGraph.bw
 $HomeDir/bin/bedGraphToBigWig ${DatabamPre}.minus.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.minus.bedGraph.bw
-rm -rf ${DatabamPre}.plus.bedGraph ${DatabamPre}.minus.bedGraph
-rm -rf ${DatabamPre}.plus.filtered.bedGraph ${DatabamPre}.minus.filtered.bedGraph
+$HomeDir/bin/bedGraphToBigWig ${DatabamPre}.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.bedGraph.bw
+rm -rf ${DatabamPre}.plus.bedGraph ${DatabamPre}.minus.bedGraph ${DatabamPre}.bedGraph
+rm -rf ${DatabamPre}.plus.filtered.bedGraph ${DatabamPre}.minus.filtered.bedGraph ${DatabamPre}.filtered.bedGraph
 else
 echo "   Generating track files for paired end data"
 samtools view -b ${Databam}|bedtools bamtobed -bed12 > ${DatabamPre}.bed12
 awk 'BEGIN{OFS="\t"}{strand=$6;if (strand=="+") revstrand="-";else if (strand=="-") revstrand="+";if ($4~/1$/) {$6=revstrand;print $0;} else print $0}' ${DatabamPre}.bed12 > ${DatabamPre}.bed12.rev
 bedtools genomecov -bga -split -strand + -i ${DatabamPre}.bed12.rev -scale $ScalingPlus -g $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt > ${DatabamPre}.plus.bedGraph
 bedtools genomecov -bga -split -strand - -i ${DatabamPre}.bed12.rev -scale $ScalingMinus -g $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt > ${DatabamPre}.minus.bedGraph
+bedtools genomecov -bga -split -ibam ${Databam} -scale $ScalingPlus > ${DatabamPre}.bedGraph
 awk '$4!=0' ${DatabamPre}.plus.bedGraph > ${DatabamPre}.plus.filtered.bedGraph
 awk '$4!=0' ${DatabamPre}.minus.bedGraph > ${DatabamPre}.minus.filtered.bedGraph
+awk '$4!=0' ${DatabamPre}.bedGraph > ${DatabamPre}.filtered.bedGraph
 $HomeDir/bin/bedGraphToBigWig ${DatabamPre}.plus.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.plus.bedGraph.bw
 $HomeDir/bin/bedGraphToBigWig ${DatabamPre}.minus.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.minus.bedGraph.bw
-rm -rf ${DatabamPre}.plus.bedGraph ${DatabamPre}.minus.bedGraph
-rm -rf ${DatabamPre}.plus.filtered.bedGraph ${DatabamPre}.minus.filtered.bedGraph
+$HomeDir/bin/bedGraphToBigWig ${DatabamPre}.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.bedGraph.bw
+rm -rf ${DatabamPre}.plus.bedGraph ${DatabamPre}.minus.bedGraph ${DatabamPre}.bedGraph
+rm -rf ${DatabamPre}.plus.filtered.bedGraph ${DatabamPre}.minus.filtered.bedGraph ${DatabamPre}.filtered.bedGraph
 rm -rf ${DatabamPre}.bed12.rev ${DatabamPre}.bed12
 fi
 
