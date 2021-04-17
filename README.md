@@ -252,7 +252,8 @@ RNAseq/
             ├── Data1.mm10.WithTE.quant.sf                               #salmon quantification including TE
             └── Data1.salmonWithTE/
         └── tracks
-            ├── Data1.mm10.sorted.minus.bedGraph.bw                      #bigWig track files. strand separated.
+            ├── Data1.mm10.sorted.bedGraph.bw                            #bigWig track for un-stranded RNAseq
+            ├── Data1.mm10.sorted.minus.bedGraph.bw                      #bigWig track files for stranded RNAseq
             └── Data1.mm10.sorted.plus.bedGraph.bw
     └── Data2/
         ...
@@ -275,7 +276,8 @@ Data.mm10.WithTE.quant.sf                                                #Salmon
 
 2, bigWig Tracks
 ```
-Data.mm10.sorted.minus.bedGraph.bw
+Data.mm10.sorted.bedGraph.bw
+Data.mm10.sorted.plus.bedGraph.bw
 Data.mm10.sorted.minus.bedGraph.bw
 ```
 
