@@ -177,7 +177,7 @@ PipeRNAseq.sh -i SRR10446770.fastq.gz -g mm10 -p 8
 PipeRNAseq.sh -l SRR12990746.R1.fastq.gz -r SRR12990746.R2.fastq.gz -g mm10 -p 8
 ```
 
-### 3, Loop through multiple dataset
+### 3, Loop over multiple datasets
 
 If you have multiple RNAseq data to process, first write a loop to put each data into a separate folder, then submit PipeRNAseq.sh within each folder.
 
