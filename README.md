@@ -74,6 +74,8 @@ STAR --runMode genomeGenerate --genomeDir STARIndex --genomeFastaFiles ../Sequen
 #salmon index (SalmonIndex directory will be created automatically):
 #Genome FASTA index fai file will also be generated
 salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.fa -i SalmonIndex --type quasi -k 31
+#For newer version of salmon, use:
+salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.fa -i SalmonIndex --type puff -k 31 --keepDuplicates
 
 #miRNA and rRNA bowtie2 index:
 mkdir rRNAIndex
