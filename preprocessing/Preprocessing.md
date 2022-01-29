@@ -1,6 +1,8 @@
 # Preprocessing of the annotation file
 This protocol shows the procedures to prepare the annotation files, from UCSC gene annotation, using mm10 as an example.
 
+All files and scripts used here are in: https://github.com/sunyumail93/PipeRNAseq/tree/master/preprocessing
+
 ## Download annotation files
 Download annotation from UCSC Genome Browser, [Table browser](https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=1269791857_CW9VuvTqCYCCUG0WVAGccGPx7DbS).
 
