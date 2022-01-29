@@ -1,18 +1,22 @@
 # Preprocessing of the annotation file
-This protocol shows the procedures to prepare the annotation file, from UCSC gene annotation, using mm10 as an example.
+This protocol shows the procedures to prepare the annotation files, from UCSC gene annotation, using mm10 as an example.
 
 ## Download annotation files
 Download annotation from UCSC Genome Browser, [Table browser](https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=1269791857_CW9VuvTqCYCCUG0WVAGccGPx7DbS).
 
-Select: 
+Select:
+
 group: Genes and Gene Predictions
+
 track: NCBI RefSeq
+
 table: RefSeq Curated (ncbiRefSeqCurated)
 
 Then download 'all fields from selected table' as `mm10.RefSeq.UCSC.all`
+
 Also download 'GTF - gene transfer format (limited)' as `mm10.RefSeq.UCSC.gtf`
 
-This GTF file can be renamed as `mm10.RefSeq.simplified.geneid.gtf` and used in PipeRNAseq.sh. However, this GTF file contains duplicated transcripts on different chromosomes, for example, transcript `NR_165495` has 10 copies on chr7, and transcript `NR_162797` has 3 copies on differnt chromosomes:
+This GTF file can be renamed as `mm10.RefSeq.simplified.geneid.gtf` and used in PipeRNAseq.sh. However, this GTF file contains duplicated transcripts, for example, transcript `NR_165495` has 10 copies on chr7, and transcript `NR_162797` has 3 copies on differnt chromosomes:
 
 ```
 $ grep NR_165495 mm10.RefSeq.UCSC.gtf
@@ -41,7 +45,7 @@ awk '{print $10}' mm10.RefSeq.UCSC.gtf|sort|uniq|wc -l                45895     
 awk 'NR>1' mm10.RefSeq.UCSC.all|awk '{print $13}'|sort|uniq|wc -l     26214       Genes
 ```
 
-This file will cause error when converting GTF to bed12 format using `gtfToGenePred` from [UCSC tools](http://hgdownload.soe.ucsc.edu/admin/exe/).
+This file will cause error when converting GTF to bed12 format using `gtfToGenePred` and `genePredToBed` from [UCSC tools](http://hgdownload.soe.ucsc.edu/admin/exe/).
 
 So I used the following script to remove duplications and only keep one copy of each transcript:
 
@@ -71,7 +75,9 @@ Usage: RefSeqGTF_NameAdder.sh [Ori.gtf] [Unique Matching|oriName newName] [New.g
 RefSeqGTF_NameAdder.sh mm10.RefSeq.UCSC.simplified.gtf mm10.uniqMatching_WithrRNA.txt mm10.RefSeq.reduced.bed12.geneid_WithrRNA.gtf
 ```
 
-Finally, remove the rRNA genes, since usually due to poly-A selection or rRNA depletion method, this gene cannot be quantified accurately.
+Finally, remove the rRNA genes, since usually due to poly-A selection or rRNA depletion method, rRNA genes cannot be quantified accurately.
+
+Different species may have different names of rRNA genes. In mm10, they are Rn4.5s and Rn45s:
 
 ```
 # There are two rRNA genes in mm10 annotation:
