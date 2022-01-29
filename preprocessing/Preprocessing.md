@@ -18,7 +18,7 @@ Then download 'all fields from selected table' as `mm10.RefSeq.UCSC.all`
 
 Also download 'GTF - gene transfer format (limited)' as `mm10.RefSeq.UCSC.gtf`
 
-This GTF file can be renamed as `mm10.RefSeq.simplified.geneid.gtf` and used in PipeRNAseq.sh. However, this GTF file contains duplicated transcripts, for example, transcript `NR_165495` has 10 copies on chr7, and transcript `NR_162797` has 3 copies on differnt chromosomes:
+This GTF file can be renamed as `mm10.RefSeq.simplified.geneid.gtf` and used in PipeRNAseq.sh after removing ribosomal RNA genes. However, this GTF file contains duplicated transcripts, for example, transcript `NR_165495` has 10 copies on chr7, and transcript `NR_162797` has 3 copies on differnt chromosomes:
 
 ```
 $ grep NR_165495 mm10.RefSeq.UCSC.gtf
