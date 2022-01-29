@@ -76,6 +76,11 @@ STAR --runMode genomeGenerate --genomeDir STARIndex --genomeFastaFiles ../Sequen
 salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.fa -i SalmonIndex --type quasi -k 31
 #For newer version of salmon, use:
 salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.fa -i SalmonIndex --type puff -k 31 --keepDuplicates
+#Optional: if you would like to include transposon consensus sequences, you can also add the following index:
+cat ../Sequence/mm10.RefSeq.reduced.bed12.fa ../Sequence/mm10.TE.fa > ../Sequence/mm10.RefSeq.reduced.bed12.WithTE.fa
+salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.WithTE.fa -i SalmonIndexWithTE --type puff -k 31 --keepDuplicates
+cd ../Annotation
+cat mm10.uniqMatching.txt TE.list > mm10.uniqMatchingWithTE.txt   #This file will be used in DESeq2 analysis when importing salmon results
 
 #miRNA and rRNA bowtie2 index:
 mkdir rRNAIndex
@@ -116,7 +121,7 @@ PipelineHomeDir/
 
 Notes: 
 
-1, For Annotation folder, download GTF file from UCSC table browser. `reduced`: Only one location was chosen when one gene duplicates at multiple genomic loci.
+1, For Annotation folder, download GTF file from UCSC table browser. `reduced`: Only one location was chosen when one gene duplicates at multiple genomic loci. For more details about preprocessing the genome annotation files, see the [Preprocessing tutorial](https://github.com/sunyumail93/PipeRNAseq/blob/master/preprocessing/Preprocessing.md).
 
 2, `uniqMatching.txt` file contains one-to-one matching from transcript to gene name.
 
