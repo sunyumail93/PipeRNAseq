@@ -699,9 +699,9 @@ echo "   Generating track files for single end data"
 bedtools genomecov -bga -split -strand + -ibam ${Databam} -scale $ScalingPlus > ${DatabamPre}.plus.bedGraph
 bedtools genomecov -bga -split -strand - -ibam ${Databam} -scale $ScalingMinus > ${DatabamPre}.minus.bedGraph
 bedtools genomecov -bga -split -ibam ${Databam} -scale $ScalingPlus > ${DatabamPre}.bedGraph
-awk '$4!=0' ${DatabamPre}.plus.bedGraph > ${DatabamPre}.plus.filtered.bedGraph
-awk '$4!=0' ${DatabamPre}.minus.bedGraph > ${DatabamPre}.minus.filtered.bedGraph
-awk '$4!=0' ${DatabamPre}.bedGraph > ${DatabamPre}.filtered.bedGraph
+awk '$4!=0' ${DatabamPre}.plus.bedGraph | sort -k1,1 -k2,2n > ${DatabamPre}.plus.filtered.bedGraph
+awk '$4!=0' ${DatabamPre}.minus.bedGraph | sort -k1,1 -k2,2n > ${DatabamPre}.minus.filtered.bedGraph
+awk '$4!=0' ${DatabamPre}.bedGraph | sort -k1,1 -k2,2n > ${DatabamPre}.filtered.bedGraph
 $HomeDir/bin/bedGraphToBigWig ${DatabamPre}.plus.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.plus.bedGraph.bw
 $HomeDir/bin/bedGraphToBigWig ${DatabamPre}.minus.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.minus.bedGraph.bw
 $HomeDir/bin/bedGraphToBigWig ${DatabamPre}.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.bedGraph.bw
@@ -714,9 +714,9 @@ awk 'BEGIN{OFS="\t"}{strand=$6;if (strand=="+") revstrand="-";else if (strand=="
 bedtools genomecov -bga -split -strand + -i ${DatabamPre}.bed12.rev -scale $ScalingPlus -g $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt > ${DatabamPre}.plus.bedGraph
 bedtools genomecov -bga -split -strand - -i ${DatabamPre}.bed12.rev -scale $ScalingMinus -g $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt > ${DatabamPre}.minus.bedGraph
 bedtools genomecov -bga -split -ibam ${Databam} -scale $ScalingPlus > ${DatabamPre}.bedGraph
-awk '$4!=0' ${DatabamPre}.plus.bedGraph > ${DatabamPre}.plus.filtered.bedGraph
-awk '$4!=0' ${DatabamPre}.minus.bedGraph > ${DatabamPre}.minus.filtered.bedGraph
-awk '$4!=0' ${DatabamPre}.bedGraph > ${DatabamPre}.filtered.bedGraph
+awk '$4!=0' ${DatabamPre}.plus.bedGraph | sort -k1,1 -k2,2n > ${DatabamPre}.plus.filtered.bedGraph
+awk '$4!=0' ${DatabamPre}.minus.bedGraph | sort -k1,1 -k2,2n > ${DatabamPre}.minus.filtered.bedGraph
+awk '$4!=0' ${DatabamPre}.bedGraph | sort -k1,1 -k2,2n > ${DatabamPre}.filtered.bedGraph
 $HomeDir/bin/bedGraphToBigWig ${DatabamPre}.plus.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.plus.bedGraph.bw
 $HomeDir/bin/bedGraphToBigWig ${DatabamPre}.minus.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.minus.bedGraph.bw
 $HomeDir/bin/bedGraphToBigWig ${DatabamPre}.filtered.bedGraph $HomeDir/$genome/Sequence/${genome}.ChromInfo.txt ${DatabamPre}.bedGraph.bw
