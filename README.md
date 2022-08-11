@@ -82,7 +82,7 @@ salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.WithTE.fa -i SalmonIndexWi
 cd ../Annotation
 cat mm10.uniqMatching.txt TE.list > mm10.uniqMatchingWithTE.txt   #This file will be used in DESeq2 analysis when importing salmon results
 
-#miRNA and rRNA bowtie2 index:
+#rRNA bowtie2 index:
 mkdir rRNAIndex
 bowtie2-build ../Sequence/mm10.rRNA.fa ./rRNAIndex/rRNAIndex
 ```
