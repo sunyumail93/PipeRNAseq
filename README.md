@@ -75,7 +75,7 @@ STAR --runMode genomeGenerate --genomeDir STARIndex --genomeFastaFiles ../Sequen
 #Genome FASTA index fai file will also be generated
 salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.fa -i SalmonIndex --type quasi -k 31
 #For newer version of salmon, use:
-salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.fa -i SalmonIndex --type puff -k 31 --keepDuplicates
+salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.fa -i SalmonIndex
 #Optional: if you would like to include transposon consensus sequences, you can also add the following index:
 cat ../Sequence/mm10.RefSeq.reduced.bed12.fa ../Sequence/mm10.TE.fa > ../Sequence/mm10.RefSeq.reduced.bed12.WithTE.fa
 salmon index -t ../Sequence/mm10.RefSeq.reduced.bed12.WithTE.fa -i SalmonIndexWithTE --type puff -k 31 --keepDuplicates
