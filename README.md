@@ -17,7 +17,7 @@ cufflinks (optional)
 ```
 Besides the pipeline script PipeRNAseq.sh, dependencies are in ./bin folder
 
-One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig.
+One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig. If the one under the ./bin folder is not working, please re-download it by choosing the correct version (e.g. linux.x86_64).
 
 Some codes may not work on Mac OS, and bedGraphToBigWig for Mac version can be downloaded here: http://hgdownload.soe.ucsc.edu/admin/exe/macOSX.x86_64, and need to be saved in ./bin folder
 
