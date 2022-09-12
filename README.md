@@ -15,9 +15,33 @@ featureCount (from Subread)
 fastqc (optional)
 cufflinks (optional)
 ```
-Besides the pipeline script PipeRNAseq.sh, dependencies are in ./bin folder
 
-One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig. If the one under the ./bin folder is not working, please re-download it by choosing the correct version (e.g. linux.x86_64).
+The above software can also be installed using conda, as below:
+```
+#Create pipernaseq environment
+conda create --name pipernaseq
+conda install -n pipernaseq -c bioconda bowtie2
+conda install -n pipernaseq -c bioconda star
+conda install -n pipernaseq -c bioconda bedtools
+conda install -n pipernaseq -c bioconda samtools
+conda install -n pipernaseq -c bioconda subread
+conda install -n pipernaseq -c bioconda fastqc
+conda install -n pipernaseq -c bioconda git
+#We ignore cufflinks since usually we don't need it.
+
+#This environment is not compatible with salmon, so we have to download salmon and install it separately:
+wget "https://github.com/COMBINE-lab/salmon/releases/download/v1.9.0/salmon-1.9.0_linux_x86_64.tar.gz"
+tar -xvzf salmon-1.9.0_linux_x86_64.tar.gz
+#Finally, add the salmon-1.9.0_linux_x86_64/bin directory to PATH
+
+#Create another env for multiqc, due to the conflict with pipernaseq:
+conda create --name multiqc_env
+conda install -n multiqc_env -c bioconda multiqc
+```
+
+The main pipeline script is PipeRNAseq.sh, and dependencies are in the ./bin folder
+
+One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig. If the binary file the ./bin folder is not working (Execute ./bin/bedGraphToBigWig but got errors), please re-download it by choosing the correct version (e.g. linux.x86_64).
 
 Some codes may not work on Mac OS, and bedGraphToBigWig for Mac version can be downloaded here: http://hgdownload.soe.ucsc.edu/admin/exe/macOSX.x86_64, and need to be saved in ./bin folder
 
