@@ -7,7 +7,7 @@ This pipeline has been used in the following publications:
 
 2. Markosyan, N., Li, J., Sun, Y.H., ..., 2019. [Tumor cell–intrinsic EPHA2 suppresses antitumor immunity by regulating PTGS2 (COX-2)](https://www.jci.org/articles/view/127755). _The Journal of clinical investigation_, 129(9), pp.3594-3609.
 
-3. Ye, X., Yang, Y., ..., Sun, Y.H., ..., 2022. [Genomic signatures associated with maintenance of genome stability and venom turnover in two parasitoid wasps](https://www.nature.com/articles/s41467-022-34202-y). _Nat Commun_ 13, 6417
+3. Ye, X., Yang, Y., ..., Sun, Y.H., ..., 2022. [Genomic signatures associated with maintenance of genome stability and venom turnover in two parasitoid wasps](https://www.nature.com/articles/s41467-022-34202-y). _Nat Commun_, 13, 6417
 
 
 ## Software prerequisites
