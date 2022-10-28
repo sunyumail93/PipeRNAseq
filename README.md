@@ -1,5 +1,14 @@
 # PipeRNAseq
-A comprehensive pipeline for RNAseq data analysis
+A comprehensive pipeline for RNAseq data analysis.
+
+This pipeline has been used in the following publications:
+
+1. Li, J., Byrne, K.T., Yan, F., ... , Sun, Y.H., ..., 2018. [Tumor cell-intrinsic factors underlie heterogeneity of immune cell infiltration and response to immunotherapy](https://www.cell.com/immunity/fulltext/S1074-7613(18)30261-9). _Immunity_, 49(1), pp.178-193.
+
+2. Markosyan, N., Li, J., Sun, Y.H., ..., 2019. [Tumor cell–intrinsic EPHA2 suppresses antitumor immunity by regulating PTGS2 (COX-2)](https://www.jci.org/articles/view/127755). _The Journal of clinical investigation_, 129(9), pp.3594-3609.
+
+3. Ye, X., Yang, Y., ..., Sun, Y.H., ..., 2022. [Genomic signatures associated with maintenance of genome stability and venom turnover in two parasitoid wasps](https://www.nature.com/articles/s41467-022-34202-y). _Nat Commun_ 13, 6417
+
 
 ## Software prerequisites
 This pipeline is designed to run on Linux servers (but can also be used on Mac OS), and requires the following software:
@@ -41,7 +50,7 @@ conda install -n multiqc_env -c bioconda multiqc
 
 The main pipeline script is PipeRNAseq.sh, and dependencies are in the ./bin folder
 
-One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig. If the binary file the ./bin folder is not working (Execute ./bin/bedGraphToBigWig but got errors), please re-download it by choosing the correct version (e.g. linux.x86_64).
+One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig. If the binary files under the ./bin folder are not working (Execute ./bin/bedGraphToBigWig but got errors), please re-download them by choosing the correct version (e.g. linux.x86_64).
 
 Some codes may not work on Mac OS, and bedGraphToBigWig for Mac version can be downloaded here: http://hgdownload.soe.ucsc.edu/admin/exe/macOSX.x86_64, and need to be saved in ./bin folder
 
