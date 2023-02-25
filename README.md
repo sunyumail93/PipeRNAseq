@@ -9,6 +9,8 @@ This pipeline has been used in the following publications:
 
 3. Ye, X., Yang, Y., ..., Sun, Y.H., ..., 2022. [Genomic signatures associated with maintenance of genome stability and venom turnover in two parasitoid wasps](https://www.nature.com/articles/s41467-022-34202-y). _Nat Commun_, 13, 6417
 
+4. Zhu, J., Chen K., Sun, Y.H., ..., 2023. [LSM1-mediated Major Satellite RNA decay is required for nonequilibrium histone H3. 3 incorporation into parental pronuclei](https://www.nature.com/articles/s41467-023-36584-z). _Nat Commun_, 14, 957
+
 
 ## Software prerequisites
 This pipeline is designed to run on Linux servers (but can also be used on Mac OS), and requires the following software:
