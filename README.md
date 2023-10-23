@@ -3,14 +3,15 @@ A comprehensive pipeline for RNAseq data analysis.
 
 This pipeline has been used in the following publications:
 
-1. Li, J., Byrne, K.T., Yan, F., ... , Sun, Y.H., ..., 2018. [Tumor cell-intrinsic factors underlie heterogeneity of immune cell infiltration and response to immunotherapy](https://www.cell.com/immunity/fulltext/S1074-7613(18)30261-9). _Immunity_, 49(1), pp.178-193.
+1. Li, J., Byrne, K.T., Yan, F., ..., **Sun, Y.H.**, ..., 2018. [Tumor cell-intrinsic factors underlie heterogeneity of immune cell infiltration and response to immunotherapy](https://www.cell.com/immunity/fulltext/S1074-7613(18)30261-9). _Immunity_, 49(1), pp.178-193.
 
-2. Markosyan, N., Li, J., Sun, Y.H., ..., 2019. [Tumor cell–intrinsic EPHA2 suppresses antitumor immunity by regulating PTGS2 (COX-2)](https://www.jci.org/articles/view/127755). _The Journal of clinical investigation_, 129(9), pp.3594-3609.
+2. Markosyan, N., Li, J., **Sun, Y.H.**, ..., 2019. [Tumor cell–intrinsic EPHA2 suppresses antitumor immunity by regulating PTGS2 (COX-2)](https://www.jci.org/articles/view/127755). _The Journal of clinical investigation_, 129(9), pp.3594-3609.
 
-3. Ye, X., Yang, Y., ..., Sun, Y.H., ..., 2022. [Genomic signatures associated with maintenance of genome stability and venom turnover in two parasitoid wasps](https://www.nature.com/articles/s41467-022-34202-y). _Nat Commun_, 13, 6417
+3. Ye, X., Yang, Y., ..., **Sun, Y.H.**, ..., 2022. [Genomic signatures associated with maintenance of genome stability and venom turnover in two parasitoid wasps](https://www.nature.com/articles/s41467-022-34202-y). _Nat Commun_, 13, 6417
 
-4. Zhu, J., Chen K., Sun, Y.H., ..., 2023. [LSM1-mediated Major Satellite RNA decay is required for nonequilibrium histone H3. 3 incorporation into parental pronuclei](https://www.nature.com/articles/s41467-023-36584-z). _Nat Commun_, 14, 957
+4. Zhu, J.#, Chen, K.#, **Sun, Y.H.#**, ..., 2023. [LSM1-mediated Major Satellite RNA decay is required for nonequilibrium histone H3. 3 incorporation into parental pronuclei](https://www.nature.com/articles/s41467-023-36584-z). _Nat Commun_, 14, 957 (#co-first authors)
 
+5, Liu, Z., Zhang, X., ..., **Sun, Y.H.$** and Huo, J.$ 2023. [Long- and short-read RNA sequencing from five reproductive organs of boar](https://www.nature.com/articles/s41597-023-02595-0). _Sci Data_, 10, 678 ($co-corresponding authors)
 
 ## Software prerequisites
 This pipeline is designed to run on Linux servers (but can also be used on Mac OS), and requires the following software:
