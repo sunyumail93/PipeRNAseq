@@ -11,7 +11,7 @@ This pipeline has been used in the following publications:
 
 4. Zhu, J.#, Chen, K.#, **Sun, Y.H.#**, ..., 2023. [LSM1-mediated Major Satellite RNA decay is required for nonequilibrium histone H3. 3 incorporation into parental pronuclei](https://www.nature.com/articles/s41467-023-36584-z). _Nat Commun_, 14, 957 (#co-first authors)
 
-5, Liu, Z., Zhang, X., ..., **Sun, Y.H.$** and Huo, J.$ 2023. [Long- and short-read RNA sequencing from five reproductive organs of boar](https://www.nature.com/articles/s41597-023-02595-0). _Sci Data_, 10, 678 ($co-corresponding authors)
+5. Liu, Z., Zhang, X., ..., **Sun, Y.H.$** and Huo, J.$ 2023. [Long- and short-read RNA sequencing from five reproductive organs of boar](https://www.nature.com/articles/s41597-023-02595-0). _Sci Data_, 10, 678 ($co-corresponding authors)
 
 ## Software prerequisites
 This pipeline is designed to run on Linux servers (but can also be used on Mac OS), and requires the following software:
