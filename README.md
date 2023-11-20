@@ -62,7 +62,7 @@ Also, for Mac OS, set the pipeline home directory at PipeRNAseq.sh line 59 manua
 
 ## Pipeline setup
 
-Here is an example of mm10 genome setup. If you have installed PipeRiboseq.sh pipeline before, then some folders are compatible don't need to be set up again.
+Here is an example of mm10 genome setup. If you have installed [PipeRiboseq](https://github.com/sunyumail93/PipeRiboseq) or [PipeSmRNAseq](https://github.com/sunyumail93/PipeSmRNAseq) pipeline before, then some folders such as the **bin**, **genome** folders (mm10, hg38, etc.) are compatible and many files can be shared.
 
 0, Files
 
@@ -75,6 +75,9 @@ For other species, follow the pipeline component of mm10 to generate dependent f
 ```
 git clone https://github.com/sunyumail93/PipeRNAseq.git
 mv PipeRNAseq PipelineHomeDir
+
+#Also, add PipelineHomeDir to PATH so PipeRiboseq.sh can be recognized:
+PATH=$PATH:/path/to/PipelineHomeDir
 ```
 
 2, Set up index files for genome mapping
