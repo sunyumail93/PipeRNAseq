@@ -98,7 +98,8 @@ wget "http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/mm10.chrom.sizes" -
 
 2b, Extract RNA sequences
 ```
-cd PipelineHomeDir/mm10/Annotation
+#Go to PipelineHomeDir/mm10/Annotation
+cd ../Annotation
 gunzip *.gz
 cd ../Sequence
 bedtools getfasta -s -split -name -fi mm10.fa -bed ../Annotation/mm10.RefSeq.reduced.bed12 -fo mm10.RefSeq.reduced.bed12.fa.t
