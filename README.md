@@ -113,7 +113,7 @@ rm -rf mm10.RefSeq.reduced.bed12.fa.t
 mkdir ../Index
 cd ../Index
 
-#STAR index:
+#STAR index generation. Better to run it in the background as it may take > 1h:
 mkdir STARIndex
 STAR --runMode genomeGenerate --genomeDir STARIndex --genomeFastaFiles ../Sequence/mm10.fa --sjdbGTFfile ../Annotation/mm10.RefSeq.reduced.bed12.geneid.gtf --sjdbOverhang 100
 
