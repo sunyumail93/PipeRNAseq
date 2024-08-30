@@ -109,8 +109,9 @@ rm -rf mm10.RefSeq.reduced.bed12.fa.t
 
 2c, Set up index files:
 ```
-mkdir PipelineHomeDir/mm10/Index
-cd PipelineHomeDir/mm10/Index
+#Create directory: PipelineHomeDir/mm10/Index
+mkdir ../Index
+cd ../Index
 
 #STAR index:
 mkdir STARIndex
