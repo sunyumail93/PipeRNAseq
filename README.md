@@ -41,7 +41,9 @@ conda install -n pipernaseq -c bioconda fastqc
 conda install -n pipernaseq -c bioconda git
 #We ignore cufflinks since we usually don't need it.
 
-#This environment is not compatible with salmon, so we have to download salmon and install it separately:
+#This environment seems not compatible with salmon, but you can try running this first:
+conda install -n pipernaseq -c bioconda salmon
+#If you encounter errors running the above command, we can download salmon and install it separately (for Linux):
 wget "https://github.com/COMBINE-lab/salmon/releases/download/v1.9.0/salmon-1.9.0_linux_x86_64.tar.gz"
 tar -xvzf salmon-1.9.0_linux_x86_64.tar.gz
 #Finally, add the salmon-1.9.0_linux_x86_64/bin directory to PATH
@@ -70,7 +72,7 @@ For mm10, hg38, rn6, sacCer3 and susScr11, some annotation files have been prepa
 
 For other species, follow the pipeline component of mm10 to generate dependent files.
 
-1, Download scripts from github to Linux server:
+1, Download scripts from GitHub to the Linux server:
 
 ```
 git clone https://github.com/sunyumail93/PipeRNAseq.git
@@ -78,6 +80,9 @@ mv PipeRNAseq PipelineHomeDir
 
 #Also, add PipelineHomeDir to PATH so PipeRiboseq.sh can be recognized:
 PATH=$PATH:/path/to/PipelineHomeDir
+
+#Activate conda env if you installed software through conda:
+conda activate pipernaseq
 ```
 
 2, Set up index files for genome mapping
