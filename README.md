@@ -75,14 +75,14 @@ For other species, follow the pipeline component of mm10 to generate dependent f
 1, Download scripts from GitHub to the Linux server:
 
 ```
+#Activate conda env if you installed software through conda:
+conda activate pipernaseq
+
 git clone https://github.com/sunyumail93/PipeRNAseq.git
 mv PipeRNAseq PipelineHomeDir
 
 #Also, add PipelineHomeDir to PATH so PipeRiboseq.sh can be recognized:
 PATH=$PATH:/path/to/PipelineHomeDir
-
-#Activate conda env if you installed software through conda:
-conda activate pipernaseq
 ```
 
 2, Set up index files for genome mapping
