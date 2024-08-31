@@ -23,9 +23,10 @@ STAR
 bedtools
 samtools
 salmon
-featureCount (from Subread)
+featureCount
 fastqc (optional)
 cufflinks (optional)
+sra-tools (optional)
 ```
 
 The above software can also be installed using conda, as below:
@@ -41,9 +42,8 @@ conda install -n pipernaseq -c bioconda fastqc
 conda install -n pipernaseq -c bioconda git
 #We ignore cufflinks since we usually don't need it.
 
-#This environment seems not compatible with salmon, but you can try running this first:
-conda install -n pipernaseq -c bioconda salmon
-#If you encounter errors running the above command, we can download salmon and install it separately (for Linux):
+#This environment does not seem compatible with salmon. Even the conda install may work, you may get errors when using salmon.
+#We can download salmon and install it separately (example for Linux):
 wget "https://github.com/COMBINE-lab/salmon/releases/download/v1.9.0/salmon-1.9.0_linux_x86_64.tar.gz"
 tar -xvzf salmon-1.9.0_linux_x86_64.tar.gz
 #Finally, add the salmon-1.9.0_linux_x86_64/bin directory to PATH
