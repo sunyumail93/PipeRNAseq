@@ -23,7 +23,7 @@ STAR
 bedtools
 samtools
 salmon
-featureCount
+featureCounts (from Subread)
 fastqc (optional)
 cufflinks (optional)
 sra-tools (optional)
@@ -139,6 +139,9 @@ bowtie2-build ../Sequence/mm10.rRNA.fa ./rRNAIndex/rRNAIndex
 4, Add executable permissions
 
 ```
+#Go back to PipelineHomeDir
+cd ../../
+
 chmod +x PipeRNAseq.sh
 chmod +x ./bin/bedGraphToBigWig
 ```
@@ -201,7 +204,7 @@ PipeRNAseq.sh -i Data.fastq.gz -g mm10
 PipeRNAseq.sh -l Data.R1.fastq.gz -r Data.R2.fastq.gz -g mm10
 ```
 
-More parameters used, not run fastqc, run featureCounts using unique mapping reads (to pair with an Riboseq data), and generate bigWig tracks:
+More parameters used, not run fastqc, run featureCounts using unique mapping reads (to pair with a Riboseq data), and generate bigWig tracks:
 ```
 PipeRNAseq.sh -l Data.R1.fastq.gz -r Data.R2.fastq.gz -g mm10 -noqc -p 4 -pairrpf -bigWig
 ```
@@ -212,7 +215,9 @@ PipeRNAseq.sh -l Data.R1.fastq.gz -r Data.R2.fastq.gz -g mm10 -noqc -p 4 -pairrp
  
 Use a public dataset: [GEO SRA: SRR10446759](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4160756)
 
-`fastq-dump` is part of [NCBI SRA Toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software):
+`fastq-dump` is part of [NCBI SRA Toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software).
+
+If you included sra-tools in your conda environment `pipernaseq`, you can use fastq-dump directly:
 
 ```
 #For single-end data
