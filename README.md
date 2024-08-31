@@ -48,18 +48,21 @@ wget "https://github.com/COMBINE-lab/salmon/releases/download/v1.9.0/salmon-1.9.
 tar -xvzf salmon-1.9.0_linux_x86_64.tar.gz
 #Finally, add the salmon-1.9.0_linux_x86_64/bin directory to PATH
 
+#Optional: add sra-tools to the env if you plan to download public data from GEO
+conda install -n pipernaseq -c bioconda sra-tools
+
 #Create another env for multiqc, due to the conflict with pipernaseq:
 conda create --name multiqc_env
 conda install -n multiqc_env -c bioconda multiqc
 ```
 
-The main pipeline script is PipeRNAseq.sh, and dependencies are in the ./bin folder
+The main pipeline script is PipeRNAseq.sh, and the dependencies are in the ./bin folder.
 
-One UCSC tools (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig. If the binary files under the ./bin folder are not working (Execute ./bin/bedGraphToBigWig but got errors), please re-download them by choosing the correct version (e.g. linux.x86_64).
+One UCSC tool (from http://hgdownload.soe.ucsc.edu/admin/exe/) is used: bedGraphToBigWig. If the binary files under the ./bin folder are not working (Execute ./bin/bedGraphToBigWig but get errors), please re-download them by choosing the correct platform (e.g. linux.x86_64, or macosx.x86_64).
 
-Some codes may not work on Mac OS, and bedGraphToBigWig for Mac version can be downloaded here: http://hgdownload.soe.ucsc.edu/admin/exe/macOSX.x86_64, and need to be saved in ./bin folder
+For Mac OS users, the bedGraphToBigWig compiled on Mac OS can be downloaded here: http://hgdownload.soe.ucsc.edu/admin/exe/macOSX.x86_64. It needs to be saved in ./bin folder to replace the current one.
 
-Also, for Mac OS, set the pipeline home directory at PipeRNAseq.sh line 59 manually (and comment out line 57):
+Also, for Mac OS, set the pipeline home directory at [PipeRNAseq.sh](https://github.com/sunyumail93/PipeRNAseq/blob/master/PipeRNAseq.sh) line 59 manually to your local directory (and comment out line 57):
 `HomeDir="/Users/yusun/Downloads/PipelineHomeDir"`
 
 ## Pipeline setup
