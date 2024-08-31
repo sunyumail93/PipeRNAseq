@@ -48,7 +48,7 @@ wget "https://github.com/COMBINE-lab/salmon/releases/download/v1.9.0/salmon-1.9.
 tar -xvzf salmon-1.9.0_linux_x86_64.tar.gz
 #Finally, add the salmon-1.9.0_linux_x86_64/bin directory to PATH
 
-#Optional: add sra-tools to the env if you plan to download public data from GEO
+#Optional: add sra-tools to the env if you plan to download public data from GEO using fastq-dump
 conda install -n pipernaseq -c bioconda sra-tools
 
 #Create another env for multiqc, due to the conflict with pipernaseq:
@@ -319,8 +319,13 @@ RNAseq/
     └── Data2.RNAseq/
         ...
 
-#You can also run MultiQC under the project directory (outside all Data.RNAseq folders) to summarize the results:
+#You can also run MultiQC under the project directory (outside all Data.RNAseq folders) to summarize the results
 #See more details: https://multiqc.info/
+#Deactivate the current env:
+conda deactivate
+
+#Activate multiqc env and run it:
+conda activate multiqc_env
 multiqc .
 
 ```
